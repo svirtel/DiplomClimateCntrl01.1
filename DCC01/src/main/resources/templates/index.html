@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Программа "ПО2.3"</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<ul class="nav nav-tabs m-xl-3">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Начальная страница</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/detectors">Управление списком приборов</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/detectors/new">Добавить новый прибор</a>
+    </li>
+    <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Редактирование
+            прибора</a>
+        <div class="dropdown">
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/detectors/edit/1">Редактирование прибора #1</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/2">Редактирование прибора #2</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/3">Редактирование прибора #3</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/4">Редактирование прибора #4</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/5">Редактирование прибора #5</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/6">Редактирование прибора #6</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/7">Редактирование прибора #7</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/8">Редактирование прибора #8</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/9">Редактирование прибора #9</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/10">Редактирование прибора #10</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/11">Редактирование прибора #11</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/12">Редактирование прибора #12</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/13">Редактирование прибора #13</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/14">Редактирование прибора #14</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/15">Редактирование прибора #15</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/16">Редактирование прибора #16</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/17">Редактирование прибора #17</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/18">Редактирование прибора #18</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/19">Редактирование прибора #19</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/20">Редактирование прибора #20</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/21">Редактирование прибора #21</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/22">Редактирование прибора #22</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/23">Редактирование прибора #23</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/24">Редактирование прибора #24</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/detectors/new">Добавить новый прибор</a></li>
+            </ul>
+        </div>
+    </li>-->
+</ul>
+
+<div class="container-fluid text-center m-xxl-2">
+    <h1>Программа "ПО2.3"</h1>
+    <h4>Учет приборов обеспечения безопасности и климата в помещениях</h4>
+    <a class="h2" th:href="@{/detectors}">Управление Реестром Приборов в Помещении "Офис Комфорт"</a>
+    <div class="m-5">
+        <p>
+            <img th:src="@{/images/indexroomslist.jpg}" alt="Схема офиса" />
+        </p>
+    </div>
+</div>
+<div class="container-fluid text-center m-xxl-2">
+    <p>Управление списком приборов <a href="/detectors">Перейти</a></p>
+    <p>Добавить новый прибор <a href="/detectors/new">Перейти</a></p>
+</div>
+</body>
+</html>

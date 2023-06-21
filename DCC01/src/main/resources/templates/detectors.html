@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Управление Реестром Приборов</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<ul class="nav nav-tabs m-xl-3">
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/">Начальная страница</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/detectors">Управление списком приборов</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" aria-current="page" href="/detectors/new">Добавить новый прибор</a>
+    </li>
+    <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Редактирование
+            прибора</a>
+        <div class="dropdown">
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/detectors/edit/1">Редактирование прибора #1</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/2">Редактирование прибора #2</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/3">Редактирование прибора #3</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/4">Редактирование прибора #4</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/5">Редактирование прибора #5</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/6">Редактирование прибора #6</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/7">Редактирование прибора #7</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/8">Редактирование прибора #8</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/9">Редактирование прибора #9</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/10">Редактирование прибора #10</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/11">Редактирование прибора #11</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/12">Редактирование прибора #12</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/13">Редактирование прибора #13</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/14">Редактирование прибора #14</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/15">Редактирование прибора #15</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/16">Редактирование прибора #16</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/17">Редактирование прибора #17</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/18">Редактирование прибора #18</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/19">Редактирование прибора #19</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/20">Редактирование прибора #20</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/21">Редактирование прибора #21</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/22">Редактирование прибора #22</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/23">Редактирование прибора #23</a></li>
+                <li><a class="dropdown-item" href="/detectors/edit/24">Редактирование прибора #24</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/detectors/new">Добавить новый прибор</a></li>
+            </ul>
+        </div>
+    </li>-->
+</ul>
+
+<div class="container-fluid text-center">
+    <div><h2>Управление Реестром Приборов</h2></div>
+    <div class="m-3">
+        <a class="h4" th:href="@{/detectors/new}">Добавить новый прибор</a>
+    </div>
+<div th:if="${message}" class="alert alert-success text-center">
+    [[${message}]]
+</div>
+    <div>
+        <table class="table table-bordered">
+            <thead style="color:white" bgcolor="black">
+            <tr>
+                <th>ID</th>
+                <th>Кодировка прибора в реестре</th>
+                <th>Тип прибора</th>
+                <th>Наименование прибора</th>
+                <th>Серийный номер прибора</th>
+                <th>Помещение №</th>
+                <th>Название помещения</th>
+                <th>Статус "Включено" прибора</th>
+                <th>Изменить данные прибора</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="detector : ${listDetectors}">
+                <tr>
+                    <td>[[${detector.id}]]</td>
+                    <td>[[${detector.detCharset}]]</td>
+                    <td>[[${detector.detType}]]</td>
+                    <td>[[${detector.detName}]]</td>
+                    <td>[[${detector.detSerial}]]</td>
+                    <td>[[${detector.roomIndex}]]</td>
+                    <td>[[${detector.roomName}]]</td>
+                    <td>[[${detector.enabled}]]</td>
+                    <td>
+                        <a class="h6 mr-3" th:href="@{'/detectors/edit/' + ${detector.id}}">Редактировать</a>
+                        <a class="h6" th:href="@{'/detectors/delete/' + ${detector.id}}">Удалить</a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p>
+            <img th:src="@{/images/detectorsroomslist.jpg}" alt="Приборы в офисе" width="1292" height="408" />
+        </p>
+    </div>
+</div>
+<div class="container-fluid text-center m-xxl-2">
+    <p>Начальная страница  <a href="/">Перейти</a></p>
+    <p>Добавить новый прибор  <a href="/detectors/new">Перейти</a></p>
+</div>
+</body>
+</html>
